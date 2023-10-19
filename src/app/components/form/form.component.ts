@@ -105,6 +105,7 @@ export class FormComponent implements OnInit {
   remove(row: any, index: number) {
     if (this.items.indexOf(row) === index && this.role === 'employee') {
       this.items.splice(index, 1);
+      localStorage.setItem('items', JSON.stringify(this.items));
       this.dataSource.data = this.items;
       this.total -= row.amount;
       this.toastr.success('Item Removed..')
